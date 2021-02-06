@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<script src="script.js"></script>
+	<title>Tudo Minado</title>
+</head>
+<body>
+	<div class="topo" id="barratopo">
+		<div id="gameid" style="display:none"></div>
+		<input id="Logout" value="Logout" type="button" onclick="logoff()" style="display:none">
+	</div>
+	<h1 id="titulo">Minesweeper</h1>
+	<div class="homepage" id="homepage" style="display:none">
+		<div id="cor" class="cor">
+			<ul>
+				<li><span id="cor1"><a href="#Play" onclick="showRadio()">Play</a></span></li>
+				<li><span id="cor2"><a href="#instructions" onclick="showInstructions()">Instructions</a></span></li>
+				<li><span id="cor3"><a href="#honor_board" onclick="showHonorBoard()">Honor Board</a></span></li>
+				<li><span><a href="#ownrank" onclick="storage()">Your Scores</a></span></li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class="message" id="message" style="display:none"></div>
+	<Button id="leave" style="display:none" onclick="leave()">Leave</Button>
+
+
+	<div class="login-form" id="form">
+		<form id="login">
+			<div class="textbox">
+				<input name="username" id="user" placeholder="Username" type="text">
+				<input name="password" id="password" placeholder="Password" type="password">
+			</div>
+			<div class="buttonsform">
+				<input class="button" value="Login" onclick="initialize()" type="button">
+			</div>
+		</form>
+	</div>
+	<div id="GameInfo" style="display:none">
+		<p>Mines:<span id="NMines"></span></p>
+		<p>Time:<span id="time"></span></p>
+		<p id="turns">Turn:<span id="playerturn"></span></p>
+	</div>
+	<div id="jogo" class="tabuleiro"></div>
+
+	<div id="ownrank" class="ranks" style="display:none">
+		<h3 class="menutitle">Your Scores</h3>
+		<div id="ownrank1" class="table"></div>
+	</div>
+	
+	<div id="instructions" class="inst">
+		<h3 class="menutitle">Instructions</h3>
+		<p>The purpose of the game is to open all the cells of the board which do not contain a bomb. You lose if you set off a bomb cell.
+
+			Every non-bomb cell you open will tell you the total number of bombs in the eight neighboring cells. Once you are sure that a cell contains a bomb, you can right-click to put a flag it on it as a reminder. Once you have flagged all the bombs around an open cell, you can quickly open the remaining non-bomb cells by shift-clicking on the cell.
+
+			To start a new game (abandoning the current one), just click on the yellow face button.
+
+			Happy mine hunting!
+		</p>
+	</div>
+
+
+
+
+	<div id="honor_board" class="HB">
+		<h3 class="menutitle">Honor Board</h3>
+		<ul id="omg">
+			<li><span><a href="#Begin" onclick="beginner()">Beginner</a></span></li>
+			<li><span><a href="#Interm" onclick="intermediate()">Intermediate</a></span></li>
+			<li><span><a href="#Expert" onclick="expert()">Expert</a></span></li>
+		</ul>
+	</div>
+
+	<div id="Begin" style="display:none" class="ranks">
+		<h3 class="thing">Beginner</h3>
+		<div class="table" id="list_beginner"></div>
+	</div>
+
+	<div id="Interm" style="display:none" class="ranks">
+		<h3 class="thing">Intermediate</h3>
+		<div class="table" id="list_intermediate"></div>
+	</div>
+
+	<div id="Expert" style="display:none" class="ranks">
+		<h3 class="thing">Expert</h3>
+		<div class="table" id="list_expert"></div>
+	</div>
+
+
+	<div id="Play" class="Game">
+		<h3 class="menutitle">Play</h3>
+
+
+		<div class="boxgame">
+			<!-- Players -->
+			<div class="radiolist">
+				<span>Players:</span>
+				<input name="radio1" data-icon="1" type="radio" class="radio1">1 </input>
+				<input name="radio1" data-icon="2" type="radio" class="radio1">2 </input>
+			</div>
+			<!-- Level -->
+			<div class="radiolist">
+				<span>Level:</span>
+				<input name="radio" data-icon="Easy" type="radio" class="radio">
+				<input name="radio" data-icon="Medium" type="radio" class="radio">
+				<input name="radio" data-icon="Expert" type="radio" class="radio">
+			</div>
+
+		</div>
+	</div>
+
+
+	<!-- GameBoard -->
+	<div class="buttons" id="button">
+		<div class="game-menu" id="bottom">
+			<div id="vs" style="display:none"></div>
+			<Button class="text" id="str" style="display:none" onclick="letsPlay()">Start</Button>
+			<Button class="text" id="rst" style="display:none" onclick="letsPlay()">Reset</Button>
+			<Button id="bck" style="display:none" onclick="home()">Home</Button>
+			<Button id="back" style="display:none" onclick="back()">Back</Button>
+		</div>
+	</div>	
+	<div id="vs" style="display:none"></div>		
+</div>
+</body>
+</html>
